@@ -7,17 +7,19 @@
 
 #define LED_PIN     25
 
+char *html[2]={"/index.html","/Index.html"};
+
 // let our webserver do some dynamic handling
 static const char *cgi_toggle_led(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
     gpio_put(LED_PIN, !gpio_get(LED_PIN));
-    return "/index.html";
+    return html[gpio_get(LED_PIN)];
 }
 
 static const char *cgi_reset_usb_boot(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
     reset_usb_boot(0, 0);
-    return "/index.html";
+    return html[gpio_get(LED_PIN)];
 }
 
 static const tCGI cgi_handlers[] = {
