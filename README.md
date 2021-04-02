@@ -19,6 +19,7 @@ If not, compile [CMake from source](https://cmake.org/download/#latest) first.
 ```
 git clone --depth 1 https://github.com/maxnet/pico-webserver
 cd pico-webserver
+git clone https://git.savannah.nongnu.org/git/lwip.git
 git submodule update --init --depth 1
 mkdir -p build
 cd build
