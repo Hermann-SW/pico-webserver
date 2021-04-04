@@ -19,12 +19,11 @@ If not, compile [CMake from source](https://cmake.org/download/#latest) first.
 ```
 git clone --depth 1 https://github.com/maxnet/pico-webserver
 cd pico-webserver
-git clone https://git.savannah.nongnu.org/git/lwip.git
-git submodule update --init --depth 1
+git submodule update --init
 mkdir -p build
 cd build
 cmake ..
-make
+make -j$(nproc)
 ```
 
 Copy the resulting pico_webserver.uf2 file to the Pico mass storage device manually (find it in uf2 directory for flash&trial as well).
